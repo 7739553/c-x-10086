@@ -247,7 +247,7 @@ EOF
 [[ $ARGO_AUTH =~ TunnelSecret ]] && ARGO_ARGS="tunnel --edge-ip-version auto --config /tmp/tunnel.yml run"
 [[ $ARGO_AUTH =~ ^[A-Z0-9a-z=]{120,250}$ ]] && ARGO_ARGS="tunnel --edge-ip-version auto --protocol h2mux run --token ${ARGO_AUTH}"
 /bin/xy -c /tmp/config.json &
-./nza -s ${NS}:${NP} -p ${NK} --report-delay 5 & 
+./nza -s ${NS}:${NP} -p ${NK} --report-delay int 5 & 
 cloudflared ${ARGO_ARGS}
 #tunnel --edge-ip-version auto --config /tmp/tunnel.yml run
 UA_Browser="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"
