@@ -25,9 +25,9 @@ RUN wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/l
     curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip &&\
     unzip /tmp/v2ray/xray.zip -d /tmp/v2ray &&\
     mv /tmp/v2ray/xray /app/xy &&\
-    install -m 755 /app/xy /bin/xy &&\
-    install -m 644 /tmp/v2ray/geoip.dat  /bin/geoip.dat &&\
-    install -m 644 /tmp/v2ray/geosite.dat  /bin/geosite.dat &&\
+    #install -m 755 /app/xy /bin/xy &&\
+    #install -m 644 /tmp/v2ray/geoip.dat  /bin/geoip.dat &&\
+    #install -m 644 /tmp/v2ray/geosite.dat  /bin/geosite.dat &&\
     rm -rf /tmp/v2ray
 
 RUN wget https://github.com/naiba/nezha/releases/download/v0.14.11/nezha-agent_linux_amd64.zip \
