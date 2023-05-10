@@ -23,7 +23,7 @@ RUN wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/l
     sudo rm -f cloudflared.deb
 
 RUN wget https://github.com/naiba/nezha/releases/download/v0.14.11/nezha-agent_linux_amd64.zip \
-    && unzip nezha-agent_linux_amd64.zip  && sudo chmod a+x nezha-agent td
+    && unzip nezha-agent_linux_amd64.zip  && sudo mv nezha-agent nza && sudo  chmod a+x nza td
    
 
 CMD [ "bash", "./entrypoint.sh"]
