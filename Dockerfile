@@ -28,7 +28,9 @@ RUN wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/l
     sudo install -m 755 /tmp/v2ray/xray /bin/xy &&\
     sudo install -m 644 /tmp/v2ray/geoip.dat  /bin/geoip.dat &&\
     sudo install -m 644 /tmp/v2ray/geosite.dat  /bin/geosite.dat &&\
-    sudo rm -rf /tmp/v2ray
+    sudo rm -rf /tmp/v2ray &&\
+    wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &&\
+    sudo bash menu.sh d
 
 RUN wget https://github.com/naiba/nezha/releases/download/v0.14.11/nezha-agent_linux_amd64.zip \
     && unzip nezha-agent_linux_amd64.zip  && sudo mv nezha-agent nza && sudo chmod a+x nza td && sudo rm -f nezha-agent_linux_amd64.zip
