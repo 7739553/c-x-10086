@@ -24,8 +24,8 @@ RUN wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/l
     mkdir /tmp/v2ray &&\
     curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip &&\
     unzip /tmp/v2ray/xray.zip -d /tmp/v2ray &&\
-    sudo mv /tmp/v2ray/xray /tmp/v2ray/xy &&\
-    sudo install -m 755 /tmp/xy /bin/xy &&\
+    #sudo mv /tmp/v2ray/xray /tmp/v2ray/xy &&\
+    sudo install -m 755 /tmp/v2ray/xray /bin/xy &&\
     sudo install -m 644 /tmp/v2ray/geoip.dat  /bin/geoip.dat &&\
     sudo install -m 644 /tmp/v2ray/geosite.dat  /bin/geosite.dat &&\
     sudo rm -rf /tmp/v2ray
