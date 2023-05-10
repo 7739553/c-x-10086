@@ -6,19 +6,19 @@ WEB_USERNAME=${WU:-'admin'}
 WEB_PASSWORD=${WPD:-'password'}
 
 echo $ARGO_AUTH > /tmp/tunnel.json && cat > /tmp/tunnel.yml << EOF
-tunnel: \$(cut -d\" -f12 <<< \$ARGO_AUTH)
+tunnel: \$(cut -d\" -f12 <<< $ARGO_AUTH)
 credentials-file: /tmp/tunnel.json
 protocol: h2mux
 
 ingress:
-  - hostname: \$ARGO_DOMAIN
+  - hostname: $ARGO_DOMAIN
     service: http://localhost:8080
-  - hostname: \$WEB_DOMAIN
+  - hostname: $WEB_DOMAIN
     service: http://localhost:3000
 EOF
 
-  [ -n "\${SSH_DOMAIN}" ] && cat >> /tmp/tunnel.yml << EOF
-  - hostname: \$SSH_DOMAIN
+  [ -n "${SSH_DOMAIN}" ] && cat >> /tmp/tunnel.yml << EOF
+  - hostname: $SSH_DOMAIN
     service: http://localhost:2222
 EOF
       
