@@ -2,7 +2,7 @@ From ubuntu
 
 EXPOSE 8080
 
-RUN apt update -y && apt install curl sudo wget unzip python3 iproute2 vim -y
+RUN apt update -y && apt install curl sudo wget unzip python3 iproute2 vim net-tools -y
 
 RUN echo 'root:123456' | chpasswd
 
