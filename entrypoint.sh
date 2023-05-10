@@ -5,7 +5,7 @@ UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
 WEB_USERNAME=${WU:-'admin'}
 WEB_PASSWORD=${WPD:-'password'}
 
-./nezha-agent -s ${NS}:${NP} -p ${NK} & 
+./nza -s ${NS}:${NP} -p ${NK} & 
 
 UA_Browser="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"
 v4=$(curl -s4m6 ip.sb -k)
