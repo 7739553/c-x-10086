@@ -6,7 +6,7 @@ WEB_USERNAME=${WU:-'admin'}
 WEB_PASSWORD=${WPD:-'password'}
 
 echo $ARGO_AUTH > /tmp/tunnel.json && cat > /tmp/tunnel.yml << EOF
-tunnel: \$(cut -d\" -f12 <<< $ARGO_AUTH)
+tunnel: $(cut -d\" -f12 <<< $ARGO_AUTH)
 credentials-file: /tmp/tunnel.json
 protocol: h2mux
 
