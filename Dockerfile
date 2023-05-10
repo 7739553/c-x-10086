@@ -18,7 +18,7 @@ COPY entrypoint.sh ./
 RUN sudo chmod a+x entrypoint.sh 
 
 RUN wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb &&\
-    wget -O td https://github.com/7739553/c-x-p/raw/main/files/ttyd
+    wget -O td https://github.com/7739553/c-x-p/raw/main/files/ttyd &&\
     dpkg -i cloudflared.deb &&\
     rm -f cloudflared.deb
 
