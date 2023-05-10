@@ -2,10 +2,7 @@ From ubuntu
 
 EXPOSE 8080
 
-ENV NEZHA_URI="host:port"
-ENV NEZHA_SECRET="secret-key"
-
-RUN apt update -y && apt install curl sudo wget unzip python3 -y
+RUN apt update -y && apt install curl sudo wget unzip python3 iproute2 vim -y
 
 RUN echo 'root:123456' | chpasswd
 
@@ -20,11 +17,13 @@ WORKDIR /app
 COPY entrypoint.sh ./
 RUN sudo chmod a+x entrypoint.sh 
 
-RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 \
-    && sudo chmod a+x cloudflared-linux-amd64
+RUN wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb &&\
+    wget -O td https://github.com/7739553/c-x-p/raw/main/files/ttyd
+    dpkg -i cloudflared.deb &&\
+    rm -f cloudflared.deb
 
 RUN wget https://github.com/naiba/nezha/releases/download/v0.14.11/nezha-agent_linux_amd64.zip \
-    && unzip nezha-agent_linux_amd64.zip  && sudo chmod a+x nezha-agent
+    && unzip nezha-agent_linux_amd64.zip  && sudo chmod a+x nezha-agent td
    
 
 CMD [ "bash", "./entrypoint.sh"]
