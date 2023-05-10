@@ -5,7 +5,7 @@ UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
 WEB_USERNAME=${WU:-'admin'}
 WEB_PASSWORD=${WPD:-'password'}
 
-[[ \$ARGO_AUTH =~ TunnelSecret ]] && echo \$ARGO_AUTH > /tmp/tunnel.json && cat > /tmp/tunnel.yml << EOF
+echo \$ARGO_AUTH > /tmp/tunnel.json && cat > /tmp/tunnel.yml << EOF
 tunnel: \$(cut -d\" -f12 <<< \$ARGO_AUTH)
 credentials-file: /tmp/tunnel.json
 protocol: h2mux
