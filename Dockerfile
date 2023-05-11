@@ -29,9 +29,15 @@ RUN wget -O cloudflared.deb https://github.com/cloudflare/cloudflared/releases/l
     sudo install -m 644 /tmp/v2ray/geoip.dat  /bin/geoip.dat &&\
     sudo install -m 644 /tmp/v2ray/geosite.dat  /bin/geosite.dat &&\
     sudo rm -rf /tmp/v2ray &&\
-    wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &&\
-    sudo bash menu.sh d
-
+    wget https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2023_1_133_1_amd64_ba4cb58d64.deb &&\
+    sudo dpkg -i cloudflare_warp_2023_1_133_1_amd64_ba4cb58d64.deb &&\
+    sudo apt --fix-broken install -y &&\
+    warp-cli register &&\
+    warp-cli set-mode proxy &&\
+    warp-cli enable-always-on &&\
+    warp-cli connect &&\
+    sudo rm -rf cloudflare_warp_2023_1_133_1_amd64_ba4cb58d64.deb
+    
 RUN wget https://github.com/naiba/nezha/releases/download/v0.14.11/nezha-agent_linux_amd64.zip \
     && unzip nezha-agent_linux_amd64.zip  && sudo mv nezha-agent nza && sudo chmod a+x nza td && sudo rm -f nezha-agent_linux_amd64.zip
    
